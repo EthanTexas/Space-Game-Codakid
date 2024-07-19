@@ -4,7 +4,7 @@ class EnemyGroup extends Phaser.Physics.Arcade.Group {
     this.createMultiple({
       key: 'enemy',
       frame: 0,
-      repeat: 99,
+      repeat: 100,
       setActive: false,
       setVisible: false,
     });
