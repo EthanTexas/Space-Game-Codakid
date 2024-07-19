@@ -4,7 +4,7 @@ class LaserGroup extends Phaser.Physics.Arcade.Group {
 
     this.createMultiple({
       key: 'laser',
-      frame: 20,
+      frame: 199,
       repeat: 19,
       active: false,
       visible: false,
