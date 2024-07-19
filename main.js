@@ -1,4 +1,3 @@
-// Initialize Phaser
 const config = {
   type: Phaser.AUTO,
   width: 600,
