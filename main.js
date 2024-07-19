@@ -1,3 +1,4 @@
+// Initialize Phaser
 const config = {
   type: Phaser.AUTO,
   width: 600,
@@ -33,6 +34,7 @@ let lives = 3;
 let livesText;
 let scoreMessageText;
 let gameOverText;
+let youWonText;
 let playAgainButton;
 let laserSound;
 let enemyDestroyedSound;
@@ -87,6 +89,10 @@ function create() {
   gameOverText = this.add.text(120, 400, 'Game Over', { fontSize: '64px', fill: '#ffffff' });
   gameOverText.setVisible(false);
 
+  // Add you won text, initially hidden
+  youWonText = this.add.text(120, 400, 'You Won', { fontSize: '64px', fill: '#00ff00' });
+  youWonText.setVisible(false);
+
   // Add score message text, initially hidden
   scoreMessageText = this.add.text(120, 340, '', { fontSize: '32px', fill: '#ffffff' });
   scoreMessageText.setVisible(false);
@@ -139,6 +145,19 @@ function laserCollision(laser, enemy, scene) {
 
   score += 10;
   scoreText.setText('Score: ' + score);
+
+  // Check if all enemies are destroyed
+  if (enemyGroup.countActive(true) === 0) {
+    // Show you won text
+    youWonText.setVisible(true);
+
+    // Show play again button
+    playAgainButton.setVisible(true);
+
+    // Hide score and lives text
+    scoreText.setVisible(false);
+    livesText.setVisible(false);
+  }
 }
 
 function playerEnemyCollision(player, enemy, scene) {
@@ -209,8 +228,10 @@ function restartGame(scene) {
     setActive: true,
     setVisible: true,
   });
-
+  scoreText.setVisible(true)
+  livesText.setVisible(true);
   gameOverText.setVisible(false);
+  youWonText.setVisible(false);
   scoreMessageText.setVisible(false);
   playAgainButton.setVisible(false);
   scene.cameras.main.setBackgroundColor('#000000');
@@ -219,3 +240,4 @@ function restartGame(scene) {
     move(enemy, scene);
   });
 }
+
