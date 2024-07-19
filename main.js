@@ -90,11 +90,11 @@ function create() {
   gameOverText.setVisible(false);
 
   // Add you won text, initially hidden
-  youWonText = this.add.text(120, 400, 'You Won', { fontSize: '64px', fill: '#00ff00' });
+  youWonText = this.add.text(160, 340, 'You Won', { fontSize: '64px', fill: '#00ff00' });
   youWonText.setVisible(false);
 
   // Add score message text, initially hidden
-  scoreMessageText = this.add.text(120, 340, '', { fontSize: '32px', fill: '#ffffff' });
+  scoreMessageText = this.add.text(120, 350, '', { fontSize: '32px', fill: '#ffffff' });
   scoreMessageText.setVisible(false);
 
   // Add play again button, initially hidden
@@ -240,4 +240,3 @@ function restartGame(scene) {
     move(enemy, scene);
   });
 }
-
