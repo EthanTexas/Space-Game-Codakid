@@ -94,7 +94,7 @@ function create() {
   youWonText.setVisible(false);
 
   // Add score message text, initially hidden
-  scoreMessageText = this.add.text(120, 350, '', { fontSize: '32px', fill: '#ffffff' });
+  scoreMessageText = this.add.text(120, 340, '', { fontSize: '32px', fill: '#ffffff' });
   scoreMessageText.setVisible(false);
 
   // Add play again button, initially hidden
