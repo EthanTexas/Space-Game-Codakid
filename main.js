@@ -94,7 +94,7 @@ function create() {
   youWonText.setVisible(false);
 
   // Add score message text, initially hidden
-  scoreMessageText = this.add.text(120, 340, '', { fontSize: '32px', fill: '#ffffff' });
+  scoreMessageText = this.add.text(120, 350, '', { fontSize: '32px', fill: '#ffffff' });
   scoreMessageText.setVisible(false);
 
   // Add play again button, initially hidden
@@ -164,11 +164,6 @@ function playerEnemyCollision(player, enemy, scene) {
   playerDestroyedSound.play();
   emitter.explode(40, player.x, player.y);
 
-  // Call the move function on each enemy in the enemyGroup
-  enemyGroup.getChildren().forEach(enemy => {
-    move(enemy, scene);
-  });
-
   // Decrease lives
   lives -= 1;
   livesText.setText('Lives: ' + lives);
@@ -228,15 +223,17 @@ function restartGame(scene) {
     setActive: true,
     setVisible: true,
   });
-  scoreText.setVisible(true)
-  livesText.setVisible(true);
+
   gameOverText.setVisible(false);
   youWonText.setVisible(false);
   scoreMessageText.setVisible(false);
   playAgainButton.setVisible(false);
+  scoreText.setVisible(true);
+  livesText.setVisible(true);
   scene.cameras.main.setBackgroundColor('#000000');
 
   enemyGroup.getChildren().forEach(enemy => {
     move(enemy, scene);
   });
 }
+
